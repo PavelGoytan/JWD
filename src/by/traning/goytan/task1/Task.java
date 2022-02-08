@@ -138,6 +138,7 @@ public class Task {
         /**
          * #6
          * Написать программу нахождения суммы большего и меньшего из трех чисел.
+         *
          */
         public static int sumMinMax(int a, int b, int c) {
             int[] array = {a, b, c};
