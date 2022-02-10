@@ -7,33 +7,35 @@ import static java.lang.Math.sqrt;
 
 public class Task {
         public static void main(String[] args) {
-            sumOfDigits(5234); //#1
-
-            double v = resultOfExpression(1, 4, 3);//#2
-            System.out.println(v);
-
-            double perimeter = perimeterOfTriangle(2, 4);//#3
-            double area = areaOfTriangle(2, 4);//#3
-
-            boolean inRange = isInRange(4, -3);//#4
-            System.out.println(inRange);
-
-            threeNumbers(2, -3, -4);//#5
-
-            int sumMinMax = sumMinMax(11, 3, 14);//#6
-            System.out.println(sumMinMax);
-
-            valuesTable(1, 14, 2);//#7
-
-            int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-            int sum = sumMultiple(a, 2);//#8
-            System.out.println(sum);
-
-            int[] b = {11, 12, 13};
-            int[] sumOfTwoArray = sumOfTwoArray(a, b, 3);//#9
-            System.out.println(Arrays.toString(sumOfTwoArray));
-
-            int[][] arraySquare = arraySquare(4);//#10
+            MathController controller = new MathController();
+            controller.sumOfDigits();
+//            sumOfDigits(5234); //#1
+//
+//            double v = resultOfExpression(1, 4, 3);//#2
+//            System.out.println(v);
+//
+//            double perimeter = perimeterOfTriangle(2, 4);//#3
+//            double area = areaOfTriangle(2, 4);//#3
+//
+//            boolean inRange = isInRange(4, -3);//#4
+//            System.out.println(inRange);
+//
+//            threeNumbers(2, -3, -4);//#5
+//
+//            int sumMinMax = sumMinMax(11, 3, 14);//#6
+//            System.out.println(sumMinMax);
+//
+//            valuesTable(1, 14, 2);//#7
+//
+//            int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//            int sum = sumMultiple(a, 2);//#8
+//            System.out.println(sum);
+//
+//            int[] b = {11, 12, 13};
+//            int[] sumOfTwoArray = sumOfTwoArray(a, b, 3);//#9
+//            System.out.println(Arrays.toString(sumOfTwoArray));
+//
+//            int[][] arraySquare = arraySquare(4);//#10
 
         }
 
