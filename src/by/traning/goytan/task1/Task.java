@@ -1,6 +1,5 @@
 package by.traning.goytan.task1;
 
-import java.util.Arrays;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -9,6 +8,8 @@ public class Task {
         public static void main(String[] args) {
             MathController controller = new MathController();
             controller.sumOfDigits();
+            controller.resultOfExpression();
+
 //            sumOfDigits(5234); //#1
 //
 //            double v = resultOfExpression(1, 4, 3);//#2

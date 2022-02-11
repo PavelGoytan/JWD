@@ -2,8 +2,6 @@ package by.traning.goytan.task1;
 
 import java.util.Scanner;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
 
 public class MathInput {
 
@@ -20,14 +18,10 @@ public class MathInput {
     }
     public String string(){
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
-    /**
-     * #2
-     * Вычислить значение выражения по формуле (все переменные принимают
-     * действительные значения):
-     */
+
 
     /**
      * #6

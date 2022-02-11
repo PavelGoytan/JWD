@@ -2,22 +2,29 @@ package by.traning.goytan.task1;
 
 public class MathUtil {
     public static boolean isCorrectEnter(String string) {
-        boolean isCorrect = false;
         String scalar = "-?[0-9]+(\\.[0-9]+)?";
-        String[] str = string.split(" ", 3);
-        for (String s : str) {
-            isCorrect = s.matches(scalar);
-        }
-        return isCorrect;
+        return string.matches(scalar);
+
     }
 
-    public static double[] threeNumber(String string) {
-        String[] arrayString = string.split(" ", 3);
-        double[] arrayDouble = new double[arrayString.length];
-        for (int i = 0; i < arrayDouble.length; i++) {
-            arrayDouble[i] = Double.parseDouble(arrayString[i]);
-        }
-        return arrayDouble;
+    public static boolean isCorrectInteger(String string) {
+        String scalar = "-?[0-9]+";
+        return string.matches(scalar);
     }
+
+
+    public static double stringToDouble(String string) {
+        return Double.parseDouble(string);
+    }
+
+    public static int stringToInteger(String string) {
+        return Integer.parseInt(string);
+    }
+
+
+    public static boolean isCorrectVariable(double a, double b, double c) {
+        return (a != 0) && (a * c >= 0) && (b != 0);
+    }
+
 
 }
