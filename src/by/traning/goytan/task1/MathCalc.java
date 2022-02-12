@@ -32,16 +32,15 @@ public class MathCalc {
      * #6
      * Написать программу нахождения суммы большего и меньшего из трех чисел.
      */
-    public static int sumMinMax(int a, int b, int c) {
-        int[] array = {a, b, c};
-        int min = array[0];
-        int max = array[0];
-        for (int i : array) {
+    public int sumMinMax(int[] arrayInt) {
+        int min = arrayInt[0];
+        int max = arrayInt[0];
+        for (int i : arrayInt) {
             if (i < min) {
                 min = i;
             }
         }
-        for (int i : array) {
+        for (int i : arrayInt) {
             if (i > max) {
                 max = i;
             }

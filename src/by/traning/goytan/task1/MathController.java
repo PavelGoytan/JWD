@@ -12,24 +12,50 @@ public class MathController {
         this.view = new MathView();
     }
 
-    public void sumOfDigits() {
+    public void programSelection(MathController controller) {
+        view.programSelection();
+        String string = input.string();
+        while (!string.equals("Q")) {
+            while (MathUtil.isCorrectInteger(string)
+                    || MathUtil.stringToInteger(string) < 1
+                    || MathUtil.stringToInteger(string) > 3) {
+                view.inputError();
+                string = input.string();
+            }
+            int select = MathUtil.stringToInteger(string);
+            if (select == 1) {
+                controller.sumOfDigits();
+            } else if (select == 2) {
+                controller.resultOfExpression();
+            } else {
+                controller.sumMinMax();
+            }
+            view.programSelection();
+            string = input.string();
+        }
+    }
 
+
+    /**
+     * #1
+     * Составить линейную программу, печатающую значение true, если указанное высказывание является истинным, и false — в противном случае:
+     * Сумма двух первых цифр заданного четырехзначного числа
+     * равна сумме двух его последних цифр.
+     */
+    public void sumOfDigits() {
+        view.titleFourDigit();
         for (; ; ) {
             view.enterNumber();
             String stringInt = input.string();
             if (!stringInt.equals("END")) {
-                while (!MathUtil.isCorrectInteger(stringInt)) {
+                while (MathUtil.isCorrectInteger(stringInt)
+                        || MathUtil.stringToInteger(stringInt) > 9999
+                        || MathUtil.stringToInteger(stringInt) < 1000) {
                     view.inputError();
                     view.enterNumber();
                     stringInt = input.string();
                 }
                 int number = MathUtil.stringToInteger(stringInt);
-//        int number = input.number();
-                while (number > 9999 || number < 1000) {
-                    view.inputError();
-                    view.enterNumber();
-                    number = input.number();
-                }
                 view.sumOfDigits(calc.sumOfDigits(number));
             } else {
                 break;
@@ -37,12 +63,16 @@ public class MathController {
         }
     }
 
+    /**
+     * #2
+     * Вычислить значение выражения по формуле (все переменные принимают
+     * действительные значения):
+     */
     public void resultOfExpression() {
-//        double[] arrayDouble = VarCreator.getDoubles(view,input);
-
-        double a;// = arrayDouble[0];
-        double b;// = arrayDouble[1];
-        double c;// = arrayDouble[2];
+        view.titleValueOfExpression();
+        double a;
+        double b;
+        double c;
         double result;
         String end = "";
         while (!end.equals("END")) {
@@ -60,9 +90,21 @@ public class MathController {
             end = input.string();
 
         }
-
-
     }
 
+    /**
+     * #6
+     * Написать программу нахождения суммы большего и меньшего из трех чисел.
+     */
+    public void sumMinMax() {
+        view.titleSum();
+        String end = "";
+        while (!end.equals("END")) {
+            int[] integers = VarCreator.getIntegers(view, input);
+            view.sumMinMax(calc.sumMinMax(integers));
+            System.out.println("Для продолжения нажмите Enter, для завершения введите \"END\"");
+            end = input.string();
 
+        }
+    }
 }
