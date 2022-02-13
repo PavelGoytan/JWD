@@ -50,5 +50,4 @@ public class MathCalc {
         }
         return max + min;
     }
-
 }

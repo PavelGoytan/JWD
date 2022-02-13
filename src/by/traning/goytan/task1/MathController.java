@@ -59,7 +59,6 @@ public class MathController {
             }
             view.stopOrContinue();
             string = input.string();
-
         }
     }
 
@@ -75,7 +74,6 @@ public class MathController {
             view.sumMinMax(calc.sumMinMax(integers));
             view.stopOrContinue();
             string = input.string();
-
         }
     }
 

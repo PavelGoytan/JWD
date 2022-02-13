@@ -33,7 +33,5 @@ public class ProgramSelection {
             view.programSelection();
             string = input.string();
         }
-
     }
-
 }
