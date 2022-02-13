@@ -26,8 +26,8 @@ public class Controller {
             view.enterNumber();
             String stringInt = input.string();
             if (!stringInt.equals(END)) {
-                while (VarValidator.isCorrectInteger(stringInt) ||
-                        VarValidator.isFourDigit(stringInt)) {
+                while (VarValidator.isCorrectInteger(stringInt)
+                        || VarValidator.isFourDigit(stringInt)) {
                     view.inputError();
                     view.enterNumber();
                     stringInt = input.string();
