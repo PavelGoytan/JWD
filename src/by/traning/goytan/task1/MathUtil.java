@@ -11,6 +11,10 @@ public class MathUtil {
         return !string.matches(scalar);
     }
 
+    public static boolean isFourDigit(String string) {
+        return (stringToInteger(string) > 9999) || (stringToInteger(string) < 1000);
+    }
+
 
     public static double stringToDouble(String string) {
         return Double.parseDouble(string);
@@ -20,8 +24,8 @@ public class MathUtil {
         return Integer.parseInt(string);
     }
 
-    public static boolean isCorrectVariable(double a, double b, double c) {
-        return (a != 0) && (a * c >= 0) && (b != 0);
+    public static boolean isCorrectVariable(double[] array) {
+        return (array[0] != 0) && (array[0] * array[2] >= 0) && (array[1] != 0);
     }
 
 

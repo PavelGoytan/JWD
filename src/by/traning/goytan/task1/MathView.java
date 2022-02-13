@@ -65,6 +65,10 @@ public class MathView {
         System.out.println("Введите " + variable + " число: ");
     }
 
+    public void stopOrContinue() {
+        System.out.println("Для продолжения нажмите Enter, для завершения введите \"END\"");
+    }
+
 
 }
 

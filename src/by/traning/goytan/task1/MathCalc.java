@@ -24,8 +24,11 @@ public class MathCalc {
      * Вычислить значение выражения по формуле (все переменные принимают
      * действительные значения):
      */
-    public double resultOfExpression(double a, double b, double c) {
-        return (b + sqrt(pow(b, 2) + 4 * c * a)) / (2 * a) - pow(a, 3) * c + pow(b, -2);
+    public double resultOfExpression(double[] arrayDouble) {
+        return (arrayDouble[1] + sqrt(pow(arrayDouble[1], 2) +
+                4 * arrayDouble[0] * arrayDouble[2])) /
+                (2 * arrayDouble[0]) - pow(arrayDouble[0], 3) *
+                arrayDouble[2] + pow(arrayDouble[1], -2);
     }
 
     /**

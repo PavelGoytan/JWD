@@ -12,29 +12,6 @@ public class MathController {
         this.view = new MathView();
     }
 
-    public void programSelection(MathController controller) {
-        view.programSelection();
-        String string = input.string();
-        while (!string.equals("Q")) {
-            while (MathUtil.isCorrectInteger(string)
-                    || MathUtil.stringToInteger(string) < 1
-                    || MathUtil.stringToInteger(string) > 3) {
-                view.inputError();
-                string = input.string();
-            }
-            int select = MathUtil.stringToInteger(string);
-            if (select == 1) {
-                controller.sumOfDigits();
-            } else if (select == 2) {
-                controller.resultOfExpression();
-            } else {
-                controller.sumMinMax();
-            }
-            view.programSelection();
-            string = input.string();
-        }
-    }
-
 
     /**
      * #1
@@ -48,9 +25,8 @@ public class MathController {
             view.enterNumber();
             String stringInt = input.string();
             if (!stringInt.equals("END")) {
-                while (MathUtil.isCorrectInteger(stringInt)
-                        || MathUtil.stringToInteger(stringInt) > 9999
-                        || MathUtil.stringToInteger(stringInt) < 1000) {
+                while (MathUtil.isCorrectInteger(stringInt) ||
+                        MathUtil.isFourDigit(stringInt)) {
                     view.inputError();
                     view.enterNumber();
                     stringInt = input.string();
@@ -70,24 +46,18 @@ public class MathController {
      */
     public void resultOfExpression() {
         view.titleValueOfExpression();
-        double a;
-        double b;
-        double c;
         double result;
-        String end = "";
-        while (!end.equals("END")) {
+        String string = "";
+        while (!string.equals("END")) {
             double[] arrayDouble = VarCreator.getDoubles(view, input);
-            a = arrayDouble[0];
-            b = arrayDouble[1];
-            c = arrayDouble[2];
-            if (MathUtil.isCorrectVariable(a, b, c)) {
-                result = calc.resultOfExpression(a, b, c);
+            if (MathUtil.isCorrectVariable(arrayDouble)) {
+                result = calc.resultOfExpression(arrayDouble);
                 view.resultOfExpression(result);
             } else {
                 view.noSolution();
             }
-            System.out.println("Для продолжения нажмите Enter, для завершения введите \"END\"");
-            end = input.string();
+            view.stopOrContinue();
+            string = input.string();
 
         }
     }
@@ -98,13 +68,22 @@ public class MathController {
      */
     public void sumMinMax() {
         view.titleSum();
-        String end = "";
-        while (!end.equals("END")) {
+        String string = "";
+        while (!string.equals("END")) {
             int[] integers = VarCreator.getIntegers(view, input);
             view.sumMinMax(calc.sumMinMax(integers));
-            System.out.println("Для продолжения нажмите Enter, для завершения введите \"END\"");
-            end = input.string();
+            view.stopOrContinue();
+            string = input.string();
 
         }
+    }
+
+
+    public MathInput getInput() {
+        return input;
+    }
+
+    public MathView getView() {
+        return view;
     }
 }
