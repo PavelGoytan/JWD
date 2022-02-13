@@ -2,6 +2,7 @@ package by.traning.goytan.task1;
 
 
 public class MathController {
+    public static final String END = "END";
     private MathCalc calc;
     private MathInput input;
     private MathView view;
@@ -24,7 +25,7 @@ public class MathController {
         for (; ; ) {
             view.enterNumber();
             String stringInt = input.string();
-            if (!stringInt.equals("END")) {
+            if (!stringInt.equals(END)) {
                 while (MathUtil.isCorrectInteger(stringInt) ||
                         MathUtil.isFourDigit(stringInt)) {
                     view.inputError();
@@ -48,7 +49,7 @@ public class MathController {
         view.titleValueOfExpression();
         double result;
         String string = "";
-        while (!string.equals("END")) {
+        while (!string.equals(END)) {
             double[] arrayDouble = VarCreator.getDoubles(view, input);
             if (MathUtil.isCorrectVariable(arrayDouble)) {
                 result = calc.resultOfExpression(arrayDouble);
@@ -69,7 +70,7 @@ public class MathController {
     public void sumMinMax() {
         view.titleSum();
         String string = "";
-        while (!string.equals("END")) {
+        while (!string.equals(END)) {
             int[] integers = VarCreator.getIntegers(view, input);
             view.sumMinMax(calc.sumMinMax(integers));
             view.stopOrContinue();

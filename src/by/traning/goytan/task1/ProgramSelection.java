@@ -1,6 +1,7 @@
 package by.traning.goytan.task1;
 
 public class ProgramSelection {
+    public static final String EXIT = "Q";
     private MathController controller;
     private MathInput input;
     private MathView view;
@@ -14,7 +15,7 @@ public class ProgramSelection {
     public void programSelection() {
         view.programSelection();
         String string = input.string();
-        while (!string.equals("Q")) {
+        while (!string.equals(EXIT)) {
             while (MathUtil.isCorrectInteger(string)
                     || MathUtil.stringToInteger(string) < 1
                     || MathUtil.stringToInteger(string) > 3) {
