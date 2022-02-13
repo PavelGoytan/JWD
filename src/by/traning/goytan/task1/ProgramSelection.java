@@ -2,11 +2,11 @@ package by.traning.goytan.task1;
 
 public class ProgramSelection {
     public static final String EXIT = "Q";
-    private MathController controller;
-    private MathInput input;
-    private MathView view;
+    private final Controller controller;
+    private final Input input;
+    private final Output view;
 
-    public ProgramSelection(MathController controller) {
+    public ProgramSelection(Controller controller) {
         this.controller = controller;
         this.input = controller.getInput();
         this.view = controller.getView();
@@ -16,13 +16,13 @@ public class ProgramSelection {
         view.programSelection();
         String string = input.string();
         while (!string.equals(EXIT)) {
-            while (MathUtil.isCorrectInteger(string)
-                    || MathUtil.stringToInteger(string) < 1
-                    || MathUtil.stringToInteger(string) > 3) {
+            while (VarValidator.isCorrectInteger(string)
+                    || Integer.parseInt(string) < 1
+                    || Integer.parseInt(string) > 3) {
                 view.inputError();
                 string = input.string();
             }
-            int select = MathUtil.stringToInteger(string);
+            int select = Integer.parseInt(string);
             if (select == 1) {
                 controller.sumOfDigits();
             } else if (select == 2) {

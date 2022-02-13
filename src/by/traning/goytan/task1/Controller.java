@@ -1,16 +1,16 @@
 package by.traning.goytan.task1;
 
 
-public class MathController {
+public class Controller {
     public static final String END = "END";
-    private MathCalc calc;
-    private MathInput input;
-    private MathView view;
+    private final MathCalc calc;
+    private final Input input;
+    private final Output view;
 
-    public MathController() {
+    public Controller() {
         this.calc = new MathCalc();
-        this.input = new MathInput();
-        this.view = new MathView();
+        this.input = new Input();
+        this.view = new Output();
     }
 
 
@@ -26,13 +26,13 @@ public class MathController {
             view.enterNumber();
             String stringInt = input.string();
             if (!stringInt.equals(END)) {
-                while (MathUtil.isCorrectInteger(stringInt) ||
-                        MathUtil.isFourDigit(stringInt)) {
+                while (VarValidator.isCorrectInteger(stringInt) ||
+                        VarValidator.isFourDigit(stringInt)) {
                     view.inputError();
                     view.enterNumber();
                     stringInt = input.string();
                 }
-                int number = MathUtil.stringToInteger(stringInt);
+                int number = Integer.parseInt(stringInt);
                 view.sumOfDigits(calc.sumOfDigits(number));
             } else {
                 break;
@@ -51,7 +51,7 @@ public class MathController {
         String string = "";
         while (!string.equals(END)) {
             double[] arrayDouble = VarCreator.getDoubles(view, input);
-            if (MathUtil.isCorrectVariable(arrayDouble)) {
+            if (VarValidator.isCorrectVariable(arrayDouble)) {
                 result = calc.resultOfExpression(arrayDouble);
                 view.resultOfExpression(result);
             } else {
@@ -78,11 +78,11 @@ public class MathController {
     }
 
 
-    public MathInput getInput() {
+    public Input getInput() {
         return input;
     }
 
-    public MathView getView() {
+    public Output getView() {
         return view;
     }
 }

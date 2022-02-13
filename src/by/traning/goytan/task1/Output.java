@@ -1,6 +1,6 @@
 package by.traning.goytan.task1;
 
-public class MathView {
+public class Output {
     public void programSelection() {
         System.out.println("Введите 1, 2 или 3, для выбора программы или \"Q\", для выхода");
     }
